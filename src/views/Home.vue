@@ -1,18 +1,26 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <KeyBoard @printPlate="plateShow" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import KeyBoard from "@/components/keyBoard";
 export default {
-  name: 'Home',
   components: {
-    HelloWorld
-  }
-}
+    KeyBoard,
+  },
+  data() {
+    return {
+      plateList: [],
+    };
+  },
+  methods: {
+    plateShow(value) {
+      if(value instanceof Array) {
+        this.plateList = value.join('')
+      }
+    },
+  },
+};
 </script>
